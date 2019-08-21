@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="js/mui.min.js"></script>
+    <link href="css/mui.min.css" rel="stylesheet"/>
+    <script type="text/javascript" charset="utf-8">
+      	mui.init();
+    </script>
+</head>
+<body>
+	<header class="mui-bar mui-bar-nav">
+		<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		<h1 class="mui-title">好大夫即时通讯助手</h1>
+	</header>
+	
+	<nav class="mui-bar mui-bar-tab">
+		<a class="mui-tab-item mui-active" tabindex="0">
+			<span class="mui-icon mui-icon-chat"></span>
+			<span class="mui-tab-label">消息</span>
+		</a>
+		<a class="mui-tab-item" tabindex="1">
+			<span class="mui-icon mui-icon-contact"></span>
+			<span class="mui-tab-label">联系人</span>
+		</a>
+		<a class="mui-tab-item" tabindex="2">
+			<span class="mui-icon mui-icon-paperplane"></span>
+			<span class="mui-tab-label">发现</span>
+		</a>
+		<a class="mui-tab-item"  tabindex="3">
+			<span class="mui-icon mui-icon-person"></span>
+			<span class="mui-tab-label">我的</span>
+		</a>
+	</nav>
+	
+	<script type="application/javascript">
+		var pageArray = [
+			{
+				pageId: "chatlist.html",
+				pageUrl: "chatlist.html"
+			},
+			{
+				pageId: "contact.html",
+				pageUrl: "contact.html"
+			},
+			{
+				pageId: "find.html",
+				pageUrl: "find.html"
+			},
+			{
+				pageId: "mine.html",
+				pageUrl: "mine.html"
+			}
+		];
+		
+		// var childPageStyle = {
+		// 	top:"44px",
+		// 	bottom:"50px"
+		// }
+		
+		mui.plusReady(function(){
+			//获取当前webview
+			var indexWebView = plus.webview.currentWebview();
+			//追加四个子页面
+			for (var i = 0; i < pageArray.length; i++) {
+				var page = pageArray[i]
+				var pageWebView = plus.webview.create(page.pageUrl,page.pageId);
+				//隐藏
+				pageWebView.hide();
+				//追加到当前页面
+				indexWebView.append(pageWebView);
+			}
+			//展示第一张,即消息
+			plus.webview.show(pageArray[0].pageId);
+			
+			//批量绑定tab事件,展示子页面
+			mui(".mui-bar-tab").on("tap","a",function(){
+				var tabIndex = this.getActiveAttrib("tabindex");
+				//显示tab选项对应的页面
+				plus.webview.show(pageArray[tabIndex], "fade-in",200);
+				
+				//隐藏其他页面
+				for (var i = 0; i < pageArray.length; i++) {
+					if(i != tabIndex){
+						plus.webview.hide(pageArray[i].pageId,"fade-out",200);
+					}
+				}
+			})
+		})
+		
+	</script>
+</body>
+</html>

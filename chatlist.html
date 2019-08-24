@@ -10,6 +10,32 @@
         <script src="js/mui.js"></script>
 		<script type="text/javascript">
 			mui.init()
+			console.log("--------")
+			mui.plusReady(function () {
+			    mui(".mui-table-view-cell").on("tap", "a", function() {
+					//获取好友头像
+					var title = this.getAttribute("title");
+					console.log(title)
+					var headImg = this.getAttribute("headImg");
+					mui.openWindow({
+							url: "chat.html",
+							id: "chat.html",
+							extras:{
+							  title: title,//自定义扩展参数，可以用来处理页面间传值
+							  headImg: headImg
+							},
+							createNew:false,//是否重复创建同样id的webview，默认为false:不重复创建，直接显示
+							show:{
+							  autoShow:true//页面loaded事件发生后自动显示，默认为true
+							},
+							waiting:{
+							  autoShow:true,//自动显示等待框，默认为true
+							  title:'正在加载...'//等待对话框上显示的提示内容
+							  
+							}
+                    });
+				});
+			})
 		</script>
 	<body>
 		
@@ -21,81 +47,33 @@
 		<div class="mui-content">
 			<ul class="mui-table-view">
 				<li class="mui-table-view-cell mui-media">
-					<a href="javascript:;">
-						<img class="mui-media-object mui-pull-left" src="img/u=408399876,1648653762&fm=26&gp=0的副本.jpg">
+					<a href="javascript:;" headimg="img/老婆.jpg" title="老婆">
+						<img class="mui-media-object mui-pull-left" src="img/老婆.jpg">
 						<div class="mui-media-body">
-							幸福
+							老婆
 							<p class="mui-ellipsis">能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>
 						</div>
 					</a>
 				</li>
 				<li class="mui-table-view-cell mui-media">
-					<a href="javascript:;">
-						<img class="mui-media-object mui-pull-left" src="img/u=408399876,1648653762&fm=26&gp=0的副本.jpg">
+					<a href="javascript:;" headimg="img/父亲.jpg" title="父亲">
+						<img class="mui-media-object mui-pull-left" src="img/父亲.jpg">
 						<div class="mui-media-body">
-							木屋
+							父亲
 							<p class="mui-ellipsis">想要这样一间小木屋，夏天挫冰吃瓜，冬天围炉取暖.</p>
 						</div>
 					</a>
 				</li>
 				<li class="mui-table-view-cell mui-media">
-					<a href="javascript:;">
-						<img class="mui-media-object mui-pull-left" src="img/u=408399876,1648653762&fm=26&gp=0的副本.jpg">
+					<a href="javascript:;" headimg="img/母亲.jpg" title="母亲">
+						<img class="mui-media-object mui-pull-left" src="img/母亲.jpg">
 						<div class="mui-media-body">
-						    CBD
-							<p class="mui-ellipsis">烤炉模式的城，到黄昏，如同打翻的调色盘一般.</p>
-						</div>
-					</a>
-				</li>
-			</ul>
-			<ul class="mui-table-view">
-				<li class="mui-table-view-cell mui-media">
-					<a href="javascript:;">
-						<img class="mui-media-object mui-pull-left" src="img/u=408399876,1648653762&fm=26&gp=0的副本.jpg">
-						<div class="mui-media-body">
-							幸福
-							<p class="mui-ellipsis">能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>
-						</div>
-					</a>
-				</li>
-				<li class="mui-table-view-cell mui-media">
-					<a href="javascript:;">
-						<img class="mui-media-object mui-pull-left" src="img/u=408399876,1648653762&fm=26&gp=0的副本.jpg">
-						<div class="mui-media-body">
-							木屋
-							<p class="mui-ellipsis">想要这样一间小木屋，夏天挫冰吃瓜，冬天围炉取暖.</p>
-						</div>
-					</a>
-				</li>
-				<li class="mui-table-view-cell mui-media">
-					<a href="javascript:;">
-						<img class="mui-media-object mui-pull-left" src="img/u=408399876,1648653762&fm=26&gp=0的副本.jpg">
-						<div class="mui-media-body">
-						    CBD
+						    母亲
 							<p class="mui-ellipsis">烤炉模式的城，到黄昏，如同打翻的调色盘一般.</p>
 						</div>
 					</a>
 				</li>
 			</ul>
 		</div>
-		<nav class="mui-bar mui-bar-tab">
-			<a class="mui-tab-item mui-active" tabindex="0">
-				<span class="mui-icon mui-icon-chat"></span>
-				<span class="mui-tab-label">消息</span>
-			</a>
-			<a class="mui-tab-item" tabindex="1">
-				<span class="mui-icon mui-icon-contact"></span>
-				<span class="mui-tab-label">联系人</span>
-			</a>
-			<a class="mui-tab-item" tabindex="2">
-				<span class="mui-icon mui-icon-paperplane"></span>
-				<span class="mui-tab-label">发现</span>
-			</a>
-			<a class="mui-tab-item" tabindex="3">
-				<span class="mui-icon mui-icon-person"></span>
-				<span class="mui-tab-label">我的</span>
-			</a>
-		</nav>
 	</body>
-
 </html>

@@ -1,0 +1,186 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1,user-scalable=0">
+    <meta name="format-detection" content="telephone=no,email=no,address=no">
+    <title>我的朋友a</title>
+    <link rel="stylesheet" href="css/headnav.css">
+    <link rel="stylesheet" href="css/chat.css">
+	<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+	<link href="css/mui.css" rel="stylesheet" />
+	
+	<script src="js/mui.js"></script>
+	<script type="application/javascript" src="js/jquery-3.4.1.js"></script>
+	<script type="text/javascript">
+		mui.init();
+		mui.plusReady(function () {
+		   var currentWebview = plus.webview.currentWebview(); 
+		   //获取传过来的值
+		   var title = currentWebview.title;
+		   console.log(title)
+		   var headImg = currentWebview.headImg;
+		   //将好友名称更新页面顶部
+		   $("#friendName").text(title);
+		   $(".js-friend-name").each(function(){
+			   $(this).text(title);
+		   })
+		})
+	</script>
+    <script>
+               
+    </script>
+ <script src="//i2.hdfimg.com/js/seagullbegin.js"></script>
+ <script src="https://unpkg.com/vue/dist/vue.js"></script>
+ <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+ <script src="https://cdn.staticfile.org/axios/0.18.0/axios.min.js"></script>
+</head>
+<body style="padding-bottom: 120px;">
+        
+        <section id="wap-head">
+            <div class="wap-head">
+                <a href="javascript:history.go(-1);" class="w-h-back">
+            </a>
+                <span class="w-h-title" id="friendName" friendName=""></span>
+            </div>
+        </section>
+       
+    <main role="main" class="sg sg-wrapper js-sg-wrapper  pt-44">
+        <div class="container js-sg-container">
+            <section class="top-loading js-top-loading" style="height: 0px;">
+                <i class="loading-icon js-loading-icon"></i>
+                <span class="loading-text js-loading-text"></span>
+            </section>
+            <section class="chat js-chat-wrapper">
+                <ul class="chat-list js-chat-list" style="padding-bottom: 100px;">  
+                <li>
+            <section data-post-id="1" class="chat-item js-chat-1566654467 chat-item__system chat-version__1002"> 
+                <p class="chat-date">2019.08.24 21:47</p> 
+                <div class="chat-body"> 
+                    <span id="friendHeamImg" class="chat-avatar" style="background-image:url(img/老婆.jpg)"></span>
+                    <div class="chat-info">
+                        <p class="chat-info-name js-friend-name">我的朋友</p>
+                        <div class="chat-info-content"><div data-tpl="1002" class="tpl tpl_1002 js-tpl-1002">    
+							 <p class="t2-head"> 在不，晚上下班后一块吃个饭？ </p>
+						</div> 
+					</div>
+                    </div>
+                </div>
+            </section>
+        </li>
+		
+		<li>
+            <section data-post-id="7921134278" class="chat-item js-chat-1566654729 chat-item__user chat-version__1002"> 
+                <p class="chat-date">2019.08.24 21:52</p> 
+                <div class="chat-body"> 
+                    <span class="chat-avatar" style="background-image:url(img/我的头像.jpg)"></span>
+                    <div class="chat-info">
+                        <p class="chat-info-name"></p>
+                        <div class="chat-info-content"><div data-tpl="1002" class="tpl tpl_1002 js-tpl-1002">       
+						  <p class="t2-head">可以呀，没有问题</p> 
+						</div>
+					</div>
+                    </div>
+                </div>
+            </section>
+        </li>
+		<li>
+            <section data-post-id="7921134279" class="chat-item js-chat-1566654729 chat-item__system chat-version__1002"> 
+                <p class="chat-date">2019.08.24 21:52</p> 
+                <div class="chat-body"> 
+                    <span id="friendHeamImg" class="chat-avatar" style="background-image:url(img/老婆.jpg)"></span>
+                    <div class="chat-info">
+                        <p class="chat-info-name js-friend-name">我的朋友</p>
+                        <div class="chat-info-content"><div data-tpl="1002" class="tpl tpl_1002 js-tpl-1002">  
+							   <p class="t2-head">那好，六点半下班去国泰负一层犟骨头</p>
+						</div>
+					</div>
+                        
+                    </div>
+                </div>
+            </section>
+        </li>
+		<li>
+            <section data-post-id="7921134283" class="chat-item js-chat-1566654737 chat-item__user chat-version__1002"> 
+                <p class="chat-date">2019.08.24 21:52</p> 
+                <div class="chat-body"> 
+                    <span id="friendHeamImg" class="chat-avatar" style="background-image:url(img/我的头像.jpg)"></span>
+                    <div class="chat-info">
+                        <p class="chat-info-name"></p>
+                        <div class="chat-info-content"><div data-tpl="1002" class="tpl tpl_1002 js-tpl-1002">    
+							 <p class="t2-head">好的，走的时候叫我</p> 
+						</div> 
+				    </div>
+                    </div>
+                </div>
+            </section>
+        </li>
+		<li>
+            <section data-post-id="7921134284" class="chat-item js-chat-1566654737 chat-item__system chat-version__1002"> 
+                <p class="chat-date">2019.08.24 21:52</p> 
+                <div class="chat-body"> 
+                    <span id="friendHeamImg" class="chat-avatar" style="background-image:url(img/老婆.jpg)"></span>
+                    <div class="chat-info">
+                        <p class="chat-info-name js-friend-name">我的朋友</p>
+                        <div class="chat-info-content"><div data-tpl="1002" class="tpl tpl_1002 js-tpl-1002">    
+							 <p class="t2-head">好的，下班见</p> 
+						</div> 
+					</div>
+                    </div>
+                </div>
+            </section>
+        </li>
+		<li>
+            <section data-post-id="7921134285" class="chat-item js-chat-1566654739 chat-item__user chat-version__1002"> 
+                <p class="chat-date">2019.08.24 21:52</p> 
+                <div class="chat-body"> 
+                    <span id="friendHeamImg" class="chat-avatar" style="background-image:url(img/我的头像.jpg)"></span>
+                    <div class="chat-info">
+                        <p class="chat-info-name"></p>
+                        <div class="chat-info-content"><div data-tpl="1002" class="tpl tpl_1002 js-tpl-1002">      
+						   <p class="t2-head">下班见</p> 
+						</div> 
+					</div>
+                    </div>
+                </div>
+            </section>
+        </li>
+		
+		</ul>
+            </section>            
+        </div>
+    </main>
+    <section style="display: block; bottom: 0px;" class="operator-wrapper js-operator">
+        <div class="operator">
+            <div class="operator-picker js-oper-picker js-img-part"><div class="add-photo">
+    <div class="add-photo-border">
+        <!--touch环境-->
+        <div class="add-photo-list js-add-photo-list clearfix" id="img-container" style="position: relative;">
+        <!--上传图片按钮-->
+            <div class=" a-p-item a-p-plus js-img-p" id="js-img-p" style="z-index: 0;"></div>
+        <div id="p1dj1u43gu1n7k1cnl13nks6knr40_html5_container" class="plupload html5" style="position: absolute; background: transparent; width: 0px; height: 0px; overflow: hidden; z-index: -1; opacity: 0; top: 0px; left: 0px;"><input id="p1dj1u43gu1n7k1cnl13nks6knr40_html5" style="font-size: 999px; position: absolute; width: 100%; height: 100%;" type="file" accept="image/jpeg,image/gif,image/png"></div></div>
+    </div>
+</div>
+</div>
+            <textarea placeholder="请详细描述您的问题" class="operator-input js-oper-input" maxlength="2000"></textarea>
+            <div class="js-oper-btn operator-btn operator-btn__neg">发送</div>
+        </div>
+    </section>
+    <script>
+        // 此处要加引号，防止XSS攻击
+        window.PAGE_DATA = { 
+            isLoadTenHistroy:false,
+            jsRole:{"system":{"avatar":"img/老婆.jpg","name":"我的朋友","id":0},"user":{"avatar":"img/老婆.jpgg","name":"","id":"8007916468"}},
+            os:"touch",
+            orderInfo: {"total":0,"pages":0,"nowpage":1,"pagesize":3,"limit":" limit 0, 3 "},
+            hasUnreadMsg: false,
+            hasHistoryMsg: 0,
+            firstMsg:'{"postList":[{"id":1,"refId":7920265856,"providerId":6,"providerType":"SYSTEM","templateId":1002,"templateData":{"text":" Hi，hdf7uqn6ds4，我是我的朋友，有问题请留言。我们会及时处理，并反馈处理结果 ","attachments":[]},"status":1,"sourceId":0,"sourceType":"BoardRef","createTime":"2019.08.24 21:47","timeStamp":1566654467,"userInfo":{"userId":6,"headImage":"http://i1.hdfimg.com/ssi/wxmp/assitant-avatar.png","name":"我的朋友","type":"SYSTEM"},"_locals":{"_jsCurEnv":"touch","_jsCurAppType":"","_jsCurEnvOs":"android","_isWeixin":false,"_jsHeadIsShow":true,"_TRACEID":"aa755452a98f684987650e376457909c","_TRACELEVEL":6,"_wxjssdk":{}},"compiledTpl":"<div data-tpl=\\\"1002\\\" class=\\\"tpl tpl_1002 js-tpl-1002\\\">         <p class=\\\"t2-head\\\"> Hi，hdf7uqn6ds4，我是我的朋友，有问题请留言。我们会及时处理，并反馈处理结果 </p> </div> "},{"id":1,"refId":7920265856,"providerId":6,"providerType":"SYSTEM","templateId":1002,"templateData":{"text":"请在下方输入框详细描述您的问题。","attachments":[]},"status":1,"sourceId":0,"sourceType":"BoardRef","createTime":"2019.08.24 21:47","timeStamp":1566654467,"userInfo":{"userId":6,"headImage":"http://i1.hdfimg.com/ssi/wxmp/assitant-avatar.png","name":"我的朋友","type":"SYSTEM"},"_locals":{"_jsCurEnv":"touch","_jsCurAppType":"","_jsCurEnvOs":"android","_isWeixin":false,"_jsHeadIsShow":true,"_TRACEID":"aa755452a98f684987650e376457909c","_TRACELEVEL":6,"_wxjssdk":{}},"compiledTpl":"<div data-tpl=\\\"1002\\\" class=\\\"tpl tpl_1002 js-tpl-1002\\\">         <p class=\\\"t2-head\\\">请在下方输入框详细描述您的问题。</p> </div> "}]}',            
+            isShowOperator:'1',     
+            userId: '8007916468',
+            jsIsTop: '0',
+            questionTag:'',
+            providerInfo: {}    
+        };
+    </script> 
+	</body>
+</html>

@@ -18,8 +18,6 @@
 		   //获取传过来的值
 		   var title = currentWebview.title;
 		   var headImg = currentWebview.headImg;
-		   console.log(headImg)
-
 		   //将好友名称更新页面顶部
 		   $("#friendName").text(title);
 		   $(".js-friend-name").each(function(){
@@ -28,7 +26,6 @@
 		   $('.js-friend-head-img').each(function(){
 			   $(this).css("background-image","url("+headImg+")");
 		   });
-		   
 		})
 	</script>
     <script>

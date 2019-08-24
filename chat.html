@@ -17,13 +17,18 @@
 		   var currentWebview = plus.webview.currentWebview(); 
 		   //获取传过来的值
 		   var title = currentWebview.title;
-		   console.log(title)
 		   var headImg = currentWebview.headImg;
+		   console.log(headImg)
+
 		   //将好友名称更新页面顶部
 		   $("#friendName").text(title);
 		   $(".js-friend-name").each(function(){
 			   $(this).text(title);
-		   })
+		   });
+		   $('.js-friend-head-img').each(function(){
+			   $(this).css("background-image","url("+headImg+")");
+		   });
+		   
 		})
 	</script>
     <script>
@@ -56,7 +61,7 @@
             <section data-post-id="1" class="chat-item js-chat-1566654467 chat-item__system chat-version__1002"> 
                 <p class="chat-date">2019.08.24 21:47</p> 
                 <div class="chat-body"> 
-                    <span id="friendHeamImg" class="chat-avatar" style="background-image:url(img/老婆.jpg)"></span>
+                    <span id="friendHeamImg" class="chat-avatar js-friend-head-img" style="background-image:url(img/老婆.jpg)"></span>
                     <div class="chat-info">
                         <p class="chat-info-name js-friend-name">我的朋友</p>
                         <div class="chat-info-content"><div data-tpl="1002" class="tpl tpl_1002 js-tpl-1002">    
@@ -87,7 +92,7 @@
             <section data-post-id="7921134279" class="chat-item js-chat-1566654729 chat-item__system chat-version__1002"> 
                 <p class="chat-date">2019.08.24 21:52</p> 
                 <div class="chat-body"> 
-                    <span id="friendHeamImg" class="chat-avatar" style="background-image:url(img/老婆.jpg)"></span>
+                    <span id="friendHeamImg" class="chat-avatar js-friend-head-img" style="background-image:url(img/老婆.jpg)"></span>
                     <div class="chat-info">
                         <p class="chat-info-name js-friend-name">我的朋友</p>
                         <div class="chat-info-content"><div data-tpl="1002" class="tpl tpl_1002 js-tpl-1002">  
@@ -118,7 +123,7 @@
             <section data-post-id="7921134284" class="chat-item js-chat-1566654737 chat-item__system chat-version__1002"> 
                 <p class="chat-date">2019.08.24 21:52</p> 
                 <div class="chat-body"> 
-                    <span id="friendHeamImg" class="chat-avatar" style="background-image:url(img/老婆.jpg)"></span>
+                    <span id="friendHeamImg" class="chat-avatar js-friend-head-img" style="background-image:url(img/老婆.jpg)"></span>
                     <div class="chat-info">
                         <p class="chat-info-name js-friend-name">我的朋友</p>
                         <div class="chat-info-content"><div data-tpl="1002" class="tpl tpl_1002 js-tpl-1002">    

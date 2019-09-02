@@ -11,12 +11,91 @@
 	<body>
 		<header class="mui-bar mui-bar-nav">
 			<!-- <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a> -->
-			<h1 class="mui-title">我的</h1>
+			<h1 class="mui-title">我的信息</h1>
 		</header>
 		
+	<div class="mui-content">
+		<ul class="mui-table-view"  style="margin-top: 0px">
+			<li class="mui-table-view-cell mui-media">
+				<a href="javascript:;">
+					<span class="mui-pull-right mui-icon mui-icon-arrowright" style="line-height: 42px;color: #0062CC;margin-left: 10px;"></span>
+					<img id="head_img" class="mui-media-object mui-pull-right" src="img/defaultHeadImg.jpeg">
+					<div class="mui-media-body" style="line-height: 42px;">
+						头像
+					</div>
+				</a>
+			</li>
+			<li class="mui-table-view-cell mui-media">
+				<a href="javascript:;">
+					<span class="mui-pull-right mui-icon mui-icon-arrowright" style="color: #0062CC;"></span>
+                    <span id="nick_name" class="mui-pull-right" style="line-height: 24px;">那些年青春的回忆</span>
+					<div class="mui-media-body" style="line-height: 24px;">
+						昵称
+					</div>
+				</a>
+			</li>
+			<li class="mui-table-view-cell mui-media">
+				<a href="javascript:;">
+					   <span id="username" class="mui-pull-right" style="line-height: 24px;">1069344911</span>
+					<div class="mui-media-body">
+					    账号
+					</div>
+				</a>
+			</li>
+			<li class="mui-table-view-cell mui-media">
+				<a href="javascript:;">
+					<span class="mui-pull-right mui-icon mui-icon-arrowright" style="line-height: 42px;color: #0062CC;margin-left: 10px;"></span>
+					<img class="mui-media-object mui-pull-right"
+					 style="max-width: 30px;max-height: 30px;margin-top: 5px;"
+					 src="img/erweima.png">
+					<div class="mui-media-body" style="line-height: 42px;">
+					    我的二维码
+					</div>
+				</a>
+			</li>
+		</ul>
+		
+		<br />
+		<ul class="mui-table-view">
+			<li class="mui-table-view-cell mui-media" style="text-align: center;">
+				<a href="javascript:;">
+					<div class="mui-media-body">
+					    退出登录
+					</div>
+				</a>
+			</li>
+			
+		</ul>
+	</div>
 		<script src="js/mui.js"></script>
+		<script src="js/jquery-3.4.1.js"></script>
+		<script src="js/app.js"></script>
 		<script type="text/javascript">
 			mui.init()
+			
+			mui.plusReady(function () {
+				//获得当前webview
+			   var currentWebView = plus.webview.currentWebview();
+			   var userInfo = JSON.stringify(app.getGlobalUserInfo());
+			   if(userInfo != null){
+				   userInfo = JSON.parse(userInfo);
+			    	var headImg = userInfo.headImg;
+			   	    var nickName = userInfo.name;
+			   	    var username = userInfo.username;
+			        $("#head_img").attr("src", headImg);
+					$("#nick_name").text(nickName)
+			   }
+			});
+			
+			// showUserInfo: function(）{
+			// 	var userInfo = app.getGlobalUserInfo();
+			// 	if(userInfo != null){
+			// 		var headImg = userInfo.headImg;
+			// 		var nickName = userInfo.nickName;
+			// 		var username = userInfo.username;
+			// 	    $("#head_img").attr("src", headImg);
+			// 	}
+			// }
 		</script>
 	</body>
 

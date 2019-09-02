@@ -63,6 +63,24 @@
 			}
 
 			mui.plusReady(function() {
+				
+				//禁止返回到登录页面
+				 var first = null;
+				mui.back = function(){
+					 //处理逻辑：1秒内，连续两次按返回键，则退出应用；
+                    if(!first){
+                        first = new Date().getTime();
+                        mui.toast('再按一次退出应用');
+                        setTimeout(function(){
+                            first = null;
+                        },1000);
+                    }else{
+                        if(new Date().getTime()-first<1000){
+                            plus.runtime.quit();
+                        }
+                    }
+				}
+				
 				//获取当前webview
 				var indexWebView = plus.webview.currentWebview();
 				//追加四个子页面
@@ -116,6 +134,9 @@
 							CHAT.socket.onmessage = function(e) {
 								console.log(e)
 								console.log("收到消息：" + e.data);
+								//存入本地缓存
+								
+								//更新未读消息的数目
 							},
 							CHAT.socket.onclose = function() {
 								console.log("连接关闭");

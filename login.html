@@ -40,6 +40,15 @@
 		<script type="application/javascript" src="js/app.js"></script>
 		<script type="text/javascript">
 			mui.plusReady(function() {
+				
+				//判断用户有没有登录过
+				var userInfo = app.getGlobalUserInfo();
+				console.log(userInfo)
+				if(userInfo != null){
+					//跳转页面
+					mui.openWindow("index.html", "index.html");
+				}
+				
 				//给登录按钮绑定点击事件
 				var userform = document.getElementById("userform");
 				var username = document.getElementById("username");
@@ -70,27 +79,29 @@
 					// var cid = plus.push.getClientInfo().clientid;
 				    
 					//发送ajax请求
-					mui.ajax(app.serverUrl + "/user/userLoginOrRegister", {
+					console.log(username.value)
+					mui.ajax(app.serverUrl + "/user/registerOrLogin", {
 						data: {
-							username: username.value,
-							password: password.value
+							"username": username.value,
+							"password": password.value
 							// cid: cid
 						},
 						dataType: 'json', //服务器返回json格式数据
 						type: 'post', //HTTP请求类型
-						timeout: 10000, //超时时间设置为10秒；
-						headers: {
-							'Content-Type': 'application/json'
-						},
+						timeout: 1000, //超时时间设置为10秒；
+						// headers: {
+						// 	'Content-Type': 'application/json'
+						// },
 						success: function(data) {
 							//服务器返回响应，根据响应结果，分析是否登录成功；
 							console.log(JSON.stringify(data));
 							//登录成功
 							if(data.code == 0){
-								var userInfo = data.data;
+								var userInfo = data.dataBody;
+								console.log(data.dataBody)
 								app.setGlobalUserInfo(userInfo);
 								//跳转页面
-								mui.openWindow("index.html","index.html")
+								mui.openWindow("index.html", "index.html")
 							}else{
 								plus.nativeUI.toast(data.msg);
 							}
@@ -98,6 +109,7 @@
 						error: function(xhr, type, errorThrown) {
 							//异常处理；
 							console.log(type);
+							console.log(errorThrown)
 							console.log(JSON.stringify(xhr))
 						}
 					});

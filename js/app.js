@@ -28,6 +28,11 @@ window.app = {
 		plus.storage.setItem("userInfo",userInfoStr);
 	},
 	
+	setGlobalMsg:function(msg, providerKey){
+		var msgStr = JSON.stringify(meg)
+		plus.storage.setItem(providerKey, msgStr);
+	}
+	
 	/**
 	 * 获取用户的全局对象
 	 */

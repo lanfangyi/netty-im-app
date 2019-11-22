@@ -65,7 +65,7 @@
 			mui.plusReady(function() {
 				
 				//禁止返回到登录页面
-				 var first = null;
+				var first = null;
 				mui.back = function(){
 					 //处理逻辑：1秒内，连续两次按返回键，则退出应用；
                     if(!first){
@@ -134,7 +134,12 @@
 							CHAT.socket.onmessage = function(e) {
 								console.log(e)
 								console.log("收到消息：" + e.data);
+								//获取providerKey
+								var providerKey = e.data.providerId + "_" + e.data.providerType;
 								//存入本地缓存
+								window.app.setGlobalMsg(e.data, providerKey);
+								
+								//判断当前所在页面
 								
 								//更新未读消息的数目
 							},

@@ -9,7 +9,8 @@ window.app = {
 	/**
 	 * websocket请求的地址
 	 */
-	wsUrl:'ws://192.168.0.103:8081/ws',
+	// wsUrl:'ws://192.168.0.103:8081/ws',
+	wsUrl:'ws://10.4.34.4:8081/ws',
 	/**
 	 * 判断字符串是否为空，true代表不为空，false代表为空
 	 * @param {Object} str
@@ -31,7 +32,7 @@ window.app = {
 	setGlobalMsg:function(msg, providerKey){
 		var msgStr = JSON.stringify(meg)
 		plus.storage.setItem(providerKey, msgStr);
-	}
+	},
 	
 	/**
 	 * 获取用户的全局对象
@@ -40,6 +41,7 @@ window.app = {
 		var userInfo = plus.storage.getItem("userInfo");
 		return JSON.parse(userInfo);
 	},
+	
 	
 	setGlobalUserImg:function(userId, msgType, msg){
 		var msgList = plus.storage.getItem(userId+"_"+msgType);
